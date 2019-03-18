@@ -40,7 +40,9 @@
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
 
-<div class="w3-container w3-teal">
+    
+
+<!-- <div class="w3-container w3-teal">
   <h2>Input Form</h2>
 </div>
 
@@ -52,7 +54,69 @@
   <input class="w3-input w3-border w3-light-grey" type="text">
 
   <button class="w3-btn w3-blue-grey">Register</button>
-</form>
+</form> -->
+
+
+
+    <!-- Modal Structure -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Terms & Conditions</h4>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <div class="container center">
+      <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
+    </div>
+    
+    <div id="login" class="modal ">
+      <h5 class="modal-close">&#10005;</h5>
+      <div class="modal-content center">
+        <h4>Login Form</h4>
+        <br>
+    
+        <form action="#">
+    
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="name">
+            <label for="name">Username</label>
+          </div>
+          <br>
+    
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="pass">
+            <label for="pass">Password</label>
+          </div>
+          <br>
+    
+          <div class="left" style="margin-left:20px;">
+            <input type="checkbox" id="check">
+            <label for="check">Remember Me</label>
+          </div>
+          <br>
+          
+          <input type="submit" value="Login" class="btn btn-large">
+          
+        </form>
+      </div>
+    </div>
+      <!-- <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+        
+                
+      
+      </div>
+    </div>
 
 <div class="row">
 
@@ -92,20 +156,8 @@
     <!--Card-->
     <div class="card card-cascade narrower">
 
-      <!--Card image-->
-      <div class="view view-cascade gradient-card-header peach-gradient">
-        <h5 class="mb-0">Custom map</h5>
-      </div>
-      <!--/Card image-->
-
-      <!--Card content-->
-      <div class="card-body card-body-cascade text-center">
-
-        <!--Google map-->
-        <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
-          <iframe src="https://maps.google.com/maps?q=Madryt&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-            style="border:0" allowfullscreen></iframe>
-        </div>
+     
+      
 
 
       </div>
@@ -136,7 +188,7 @@
     <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script>
     
     <!-- Our Javascript -->
-    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/script.js"></script>
   
 </body>
 </html>
