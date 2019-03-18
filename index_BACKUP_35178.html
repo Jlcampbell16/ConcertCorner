@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Concert Corner</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified Materialize -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<<<<<<< HEAD
+    <p id="location">location there</p>
+    <div id="map"></div>
+    <div id="events"></div>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
+
+    
+
+<!-- <div class="w3-container w3-teal">
+  <h2>Input Form</h2>
+=======
+  <p id="location"></p>
+  <div id="map"></div>
+  <div id="events"></div>
+  <script src="assets/javascript/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
+
+<div class=" w3-container w3-teal">
+  <h2>Search For A Concert Near You!</h2>
+>>>>>>> 207c6e010342355f6d57b640dd5a897476f8c570
+</div>
+
+<form class="w3-container">
+  <label class="w3-text-teal"><b>Artist or Band</b></label>
+  <input class="w3-input w3-border w3-light-grey" id="artistInput" type="text">
+
+  <label class="w3-text-teal"><b>City</b></label>
+  <input class="w3-input w3-border w3-light-grey" id="cityInput" type="text">
+
+<<<<<<< HEAD
+  <button class="w3-btn w3-blue-grey">Register</button>
+</form> -->
+
+
+
+    <!-- Modal Structure -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Terms & Conditions</h4>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <div class="container center">
+      <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
+    </div>
+    
+    <div id="login" class="modal ">
+      <h5 class="modal-close">&#10005;</h5>
+      <div class="modal-content center">
+        <h4>Login Form</h4>
+        <br>
+    
+        <form action="#">
+    
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="name">
+            <label for="name">Username</label>
+          </div>
+          <br>
+    
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="pass">
+            <label for="pass">Password</label>
+          </div>
+          <br>
+    
+          <div class="left" style="margin-left:20px;">
+            <input type="checkbox" id="check">
+            <label for="check">Remember Me</label>
+          </div>
+          <br>
+          
+          <input type="submit" value="Login" class="btn btn-large">
+          
+        </form>
+      </div>
+    </div>
+      <!-- <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+        
+                
+      
+      </div>
+=======
+  <button class="w3-btn w3-blue-grey" id="submitBtn">Search</button>
+</form>
+<div class="col-md-6 mb-4">
+    <div>
+      <h3><strong>Results for: </strong></h3>
+      <p > <span id="artistDisplay"></span> near <span id="cityDisplay"></span></p>
+>>>>>>> 207c6e010342355f6d57b640dd5a897476f8c570
+    </div>
+
+<div class="row">
+
+  <!--Grid column-->
+  <!-- Search Results -->
+
+    <br>
+    <br>
+    <!--Card-->
+    <div class="card card-cascade narrower">
+
+      <!--Card image-->
+      <div class="view view-cascade gradient-card-header blue-gradient">
+        <h5 class="mb-0">Regular map</h5>
+      </div>
+      <!--/Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+
+        <!--Google map-->
+        <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
+          <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+            style="border:0" allowfullscreen></iframe>
+        </div>
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <!--Grid column-->
+
+  <!--Grid column-->
+  <div class="col-md-6 mb-4">
+
+    <!--Card-->
+    <div class="card card-cascade narrower">
+
+     
+      
+
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <!--Grid column-->
+
+</div>
+
+    <!-- Link to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk"
+    async defer></script>
+
+  <!-- TicketMaster API -->
+  <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script>
+
+  <!-- Our Javascript -->
+  <script src="assets/javascript/script.js"></script>
+
+<<<<<<< HEAD
+
+
+    <!-- Link to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk" async
+      defer></script>
+
+    <!-- TicketMaster API -->
+    <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script>
+    
+    <!-- Our Javascript -->
+    <script src="assets/javascript/script.js"></script>
+  
+=======
+>>>>>>> 207c6e010342355f6d57b640dd5a897476f8c570
+</body>
+
+</html>
