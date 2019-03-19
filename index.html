@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8">
@@ -8,17 +8,28 @@
     <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Concert Corner</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <style>
-img {
-  border-radius: 15px;
-}
+        img {
+            border-radius: 15px;
+        }
 
         .mySlides {
             display: none;
         }
     </style>
 </head>
-<!-- Below is the initialization snippet for my Firebase project. It will vary for each project -->
+<!-- initialization snippet for Firebase project -->
 <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 <script>
     // Initialize Firebase  
@@ -44,16 +55,12 @@ img {
             firebase.auth.GithubAuthProvider.PROVIDER_ID,
             firebase.auth.EmailAuthProvider.PROVIDER_ID
         ],
-        // Terms of service url can be specified and will show up in the widget.  
-        tosUrl: '<your-tos-url>'
     };
     // Initialize the FirebaseUI Widget using Firebase.  
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.  
     ui.start('#firebaseui-auth-container', uiConfig);  
 </script>
-<!-- Include a simple background image & and title -->
-<div></div>
 
 <body>
     <h2 class="w3-center">Concert Corner Login</h2>
@@ -87,6 +94,48 @@ img {
         <p class="m-t">
             <h6 align="center">&copy; 2019 TeamAPI</h6>
         </p>
+
+        <!-- <Modal TERMS OF AGREEMENT COMMENTED OUT FOR NOW -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
+
+        <!-- Modal Structure-->
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Terms & Conditions</h4>
+                <p>Please read these Terms carefully before using (Concert Corner) powered by TeamAPI.
+
+                    Your access to use and service is conditioned on your acceptance of and compliance with these Terms.
+                    Terms
+                    apply to all visitors, users and others of Concert Corner.
+
+                    We may terminate or suspend access to our Service immediately, without prior notice or liability,
+                    for any
+                    reason whatsoever, including without limitation if you breach the Terms.
+                </p>
+
+                <div class="check left">
+                    <label>
+                        <input type="checkbox" required="required" name="terms" id="checkBoxInput" class="filled-in" />
+                        <span>I agree to Terms and Conditions! Let me in!</span>
+                    </label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button href="#!" input type="submit" class="modal-close waves-effect waves-green btn-flat"
+                    id="submitBtn">I
+                    Agree</button>
+            </div>
+        </div>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+        <!-- Our Javascript -->
+        <script src="assets/javascript/script.js"></script>
+
 </body>
 
 </html>
