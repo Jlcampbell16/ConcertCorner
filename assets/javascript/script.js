@@ -37,6 +37,7 @@ $("#submitBtn").on("click", function (event) {
     
                 console.log("city response: " + cityResponse);
                 console.log("artist response: " + artisitResponse);
+                showEvents();
             }
         }
     });
@@ -46,8 +47,12 @@ $("#submitBtn").on("click", function (event) {
 $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
+// function showEvents(response) {
+//     for (var i = 0; i < response.page.size; i++) {
+//         $("#events").append("<p>" + response._embedded.events[i].name + "</p>");
+//     }
+// }
 
-getLocation();
 
 $(document).ready(function(){
     $('.modal').modal();
