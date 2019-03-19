@@ -30,11 +30,6 @@
 </head>
 
 <body>
-  <p id="location">location there</p>
-  <div id="map"></div>
-  <div id="events"></div>
-  <script src="script.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
 
     
 
@@ -59,70 +54,88 @@
   <label class="w3-text-teal"><b>City</b></label>
   <input class="w3-input w3-border w3-light-grey" id="cityInput" type="text">
 
-  <button class="w3-btn w3-blue-grey">Register</button>
-</form> -->
+  <button class="w3-btn w3-blue-grey" id="submitBtn">Search</button>
+</form>
+
+  <!-- <p id="location">location there</p> -->
+  <div id="map"></div>
+  <div id="events"></div>
+  <!-- <script src="script.js"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script> -->
 
 
+<!-- <Modal TERMS OF AGREEMENT COMMENTED OUT FOR NOW -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
 
-    <!-- Modal Structure -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
-
-  <!-- Modal Structure -->
+  <!-- Modal Structure-->
+  
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>Terms & Conditions</h4>
-      <p></p>
+      <p>Please read these Terms carefully before using (Concert Corner) powered by TeamAPI.
+ 
+ Your access to use and service is conditioned on your acceptance of and compliance with these Terms. Terms apply to all visitors, users and others  of Concert Corner.
+ 
+ We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+ </p>
+ 
+ <div class="check left" >
+   <label>
+     <input type="checkbox" required="required" name ="terms" id="checkBoxInput" class="filled-in" />
+     <span>I agree to Terms and Conditions! Let me in!</span>
+   </label>
+  </div>
+ 
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <button href="#!" input type ="submit"  class="modal-close waves-effect waves-green btn-flat" id="submitBtn" >I Agree</button>
     </div>
-  </div>
+  </div>  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+ 
+    
+ 
+ 
     <div class="container center">
       <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
     </div>
     
-    <div id="login" class="modal ">
+    <div id="login" class="modal">
       <h5 class="modal-close">&#10005;</h5>
       <div class="modal-content center">
-        <h4>Login Form</h4>
+        <h4>Member Login</h4>
         <br>
     
         <form action="#">
     
           <div class="input-field">
             <i class="material-icons prefix">person</i>
-            <input type="text" id="name">
+            <input type="text" id="userNameInput">
             <label for="name">Username</label>
           </div>
           <br>
     
           <div class="input-field">
             <i class="material-icons prefix">lock</i>
-            <input type="password" id="pass">
+            <input type="password" id="userPassword">
             <label for="pass">Password</label>
           </div>
           <br>
-    
-          <div class="left" style="margin-left:20px;">
-            <input type="checkbox" id="check">
-            <label for="check">Remember Me</label>
+ 
+          <div class="check left">
+           <label>
+             <input type="checkbox" id="checkBoxInput class="filled-in" />
+             <span>Hey! Remember Me!</span>
+           </label>
           </div>
-          <br>
-          
-          <input type="submit" value="Login" class="btn btn-large">
+  
+          <br> 
+          <input type="submit" value="Login" id="loginSubmit" class=" btn btn-large">
           
         </form>
       </div>
     </div>
-      <!-- <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
-        
-                
-      
-      </div>
-    </div>
+
 
 <div class="row">
     <!--Card-->
