@@ -46,6 +46,13 @@ $("#submitBtn").on("click", function (event) {
 $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
+
+getLocation();
+
+$(document).ready(function(){
+    $('.modal').modal();
+  });
+
 //_______________________________________________________________________________
 
 // function getLocation() {
@@ -131,3 +138,4 @@ $("#cityDisplay").text(sessionStorage.getItem("city"));
 
 
 // getLocation();
+
