@@ -11,3 +11,12 @@ height:100%;
 width:100%;
 position:absolute;
 }
+
+#map {
+    width: 300px;
+    height: 250px;
+  }
+
+  .modal-trigger {
+    text-align: left;
+  }
