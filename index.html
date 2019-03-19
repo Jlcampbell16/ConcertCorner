@@ -56,10 +56,91 @@
       <p > <span id="artistDisplay"></span> near <span id="cityDisplay"></span></p>
     </div>
 
-<div class="row">
+     
+ <!-- <Modal TERMS OF AGREEMENT COMMENTED OUT FOR NOW -->
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
+
+ <!-- Modal Structure-->
+ 
+ <div id="modal1" class="modal">
+   <div class="modal-content">
+     <h4>Terms & Conditions</h4>
+     <p>Please read these Terms carefully before using (Concert Corner) powered by TeamAPI.
+
+Your access to use and service is conditioned on your acceptance of and compliance with these Terms. Terms apply to all visitors, users and others  of Concert Corner.
+
+We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+</p>
+
+<div class="check left" >
+  <label>
+    <input type="checkbox" required="required" name ="terms" id="checkBoxInput" class="filled-in" />
+    <span>I agree to Terms and Conditions! Let me in!</span>
+  </label>
+ </div>
+
+   </div>
+   <div class="modal-footer">
+     <button href="#!" input type ="submit"  class="modal-close waves-effect waves-green btn-flat" id="submitBtn" >I Agree</button>
+   </div>
+ </div>  
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   
+
+
+   <!-- <div class="container center">
+     <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
+   </div>
+   
+   <div id="login" class="modal">
+     <h5 class="modal-close">&#10005;</h5>
+     <div class="modal-content center">
+       <h4>Member Login</h4>
+       <br>
+   
+       <form action="#">
+   
+         <div class="input-field">
+           <i class="material-icons prefix">person</i>
+           <input type="text" id="userNameInput">
+           <label for="name">Username</label>
+         </div>
+         <br>
+   
+         <div class="input-field">
+           <i class="material-icons prefix">lock</i>
+           <input type="password" id="userPassword">
+           <label for="pass">Password</label>
+         </div>
+         <br>
+
+         <div class="check left">
+          <label>
+            <input type="checkbox" id="checkBoxInput class="filled-in" />
+            <span>Hey! Remember Me!</span>
+          </label>
+         </div>
+   
+         
+         <br> 
+         
+         <input type="submit" value="Login" id="loginSubmit" class=" btn btn-large">
+         
+       </form>
+     </div>
+   </div>
+     
+               
+     
+     </div>
+   </div> -->
+
+
+<div class="row"> 
 
   <!--Grid column-->
-  bladkjfadslkjfasdlkjflasdj
+  
   <!-- Search Results -->
 
     <br>
@@ -135,7 +216,7 @@
   <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script>
 
   <!-- Our Javascript -->
-  <script src="assets/javascript/script.js"></script>
+  <script src="./assets/javascript/script.js"></script>
 
 </body>
 
