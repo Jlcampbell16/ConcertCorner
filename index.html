@@ -45,12 +45,12 @@
   <p id="location"></p>
   <div id="map"></div>
   <div id="events"></div>
-  <script src="assets/javascript/script.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
+  <!-- <script src="assets/javascript/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script> -->
 
 <div class=" w3-container w3-teal">
   <h2>Search For A Concert Near You!</h2>
->>>>>>> master
+
 </div>
 
 <form class="w3-container">
@@ -126,28 +126,11 @@
     </div>
 
 <div class="row">
-
-  <!--Grid column-->
-  <!-- Search Results -->
-
-    <br>
-    <br>
     <!--Card-->
     <div class="card card-cascade narrower">
-
       <!--Card image-->
-      <div class="view view-cascade gradient-card-header blue-gradient">
-        <h5 class="mb-0">Regular map</h5>
-      </div>
-      <!--/Card image-->
-
-      <!--Card content-->
-      <div class="card-body card-body-cascade text-center">
-
-        <!--Google map-->
-        <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
-          <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-            style="border:0" allowfullscreen></iframe>
+        <div class="view view-cascade gradient-card-header blue-gradient">
+          <h5 class="mb-0">Regular map</h5>
         </div>
 
       </div>
@@ -165,33 +148,34 @@
     <!--Card-->
     <div class="card card-cascade narrower">
 
-     
-      
 
+      <!--/Card image-->
+
+      <!--Card content-->
+        <div class="card-body card-body-cascade text-center">
+      <!--Google map-->
+          <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
+            <!-- <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+            style="border:0" allowfullscreen></iframe> -->
+          </div>
 
       </div>
-      <!--/.Card content-->
-
-    </div>
-    <!--/.Card-->
-
-  </div>
-  <!--Grid column-->
-
+    </div> 
 </div>
+  
 
-    <!-- Link to Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+<!-- Link to Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 
-  <!-- Google Maps API -->
+<!-- Google Maps API -->
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk"
     async defer></script>
 
-  <!-- TicketMaster API
-    <script
-      src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script> -->
 
-  <!-- Our Javascript -->
+<!-- TicketMaster API -->
+  <!-- <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script> -->
+
+<!-- Our Javascript -->
   <script src="assets/javascript/script.js"></script>
 
 
