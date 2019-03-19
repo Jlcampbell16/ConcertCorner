@@ -16,3 +16,11 @@ position:absolute;
     position: relative;
     right: 100px;
 }
+#map {
+    width: 300px;
+    height: 250px;
+  }
+
+  .modal-trigger {
+    text-align: left;
+  }

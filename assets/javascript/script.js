@@ -1,5 +1,8 @@
-// var artist;
-// var city;
+
+//old API key 5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG
+
+//Ticket Master AJAx
+//JENN'S CODE
 
 //on click event for search 
 // $("#submitBtn").on("click", function (event) {
