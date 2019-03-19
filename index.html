@@ -1,185 +1,92 @@
 <!DOCTYPE html>
-
-<html>
-
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Concert Corner</title>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Concert Corner</title>
+    <style>
+img {
+  border-radius: 15px;
+}
 
-  <!-- Latest compiled and minified Materialize -->
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        .mySlides {
+            display: none;
+        }
+    </style>
 </head>
+<!-- Below is the initialization snippet for my Firebase project. It will vary for each project -->
+<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+<script>
+    // Initialize Firebase  
+    var config = {
+        apiKey: "AIzaSyBilv09OSIQXQA5FjDXRAYWgyK59DPoDA4",
+        authDomain: "teamapi.firebaseapp.com",
+        databaseURL: "https://teamapi.firebaseio.com",
+        projectId: "teamapi",
+        storageBucket: "teamapi.appspot.com",
+        messagingSenderId: "880408127269"
+    };
+    firebase.initializeApp(config);  
+</script>
+<!-- The code below initializes the sign-in widget from FirebaseUI web. -->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<script type="text/javascript">
+    var uiConfig = {
+        signInSuccessUrl: 'concertcorner.html',
+        signInOptions: [
+            // Specify providers you want to offer your users.  
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url can be specified and will show up in the widget.  
+        tosUrl: '<your-tos-url>'
+    };
+    // Initialize the FirebaseUI Widget using Firebase.  
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.  
+    ui.start('#firebaseui-auth-container', uiConfig);  
+</script>
+<!-- Include a simple background image & and title -->
+<div></div>
 
 <body>
-  <p id="location">location there</p>
-  <div id="map"></div>
-  <div id="events"></div>
-  <script src="script.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script>
+    <h2 class="w3-center">Concert Corner Login</h2>
 
-    
-
-<!-- <div class=" w3-container w3-teal">
-  <h2>Input Form</h2>
-=======
-  <p id="location"></p>
-  <div id="map"></div>
-  <div id="events"></div>
-  <!-- <script src="assets/javascript/script.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script> -->
-
-<div class=" w3-container w3-teal">
-  <h2>Search For A Concert Near You!</h2>
-
-</div>
-
-<form class="w3-container">
-  <label class="w3-text-teal"><b>Artist or Band</b></label>
-  <input class="w3-input w3-border w3-light-grey" id="artistInput" type="text">
-
-  <label class="w3-text-teal"><b>City</b></label>
-  <input class="w3-input w3-border w3-light-grey" id="cityInput" type="text">
-
-  <button class="w3-btn w3-blue-grey">Register</button>
-</form> -->
-
-
-
-    <!-- Modal Structure -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Terms and Conditions</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Terms & Conditions</h4>
-      <p></p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <div class="container center">
-      <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
-    </div>
-    
-    <div id="login" class="modal ">
-      <h5 class="modal-close">&#10005;</h5>
-      <div class="modal-content center">
-        <h4>Login Form</h4>
-        <br>
-    
-        <form action="#">
-    
-          <div class="input-field">
-            <i class="material-icons prefix">person</i>
-            <input type="text" id="name">
-            <label for="name">Username</label>
-          </div>
-          <br>
-    
-          <div class="input-field">
-            <i class="material-icons prefix">lock</i>
-            <input type="password" id="pass">
-            <label for="pass">Password</label>
-          </div>
-          <br>
-    
-          <div class="left" style="margin-left:20px;">
-            <input type="checkbox" id="check">
-            <label for="check">Remember Me</label>
-          </div>
-          <br>
-          
-          <input type="submit" value="Login" class="btn btn-large">
-          
-        </form>
-      </div>
-    </div>
-      <!-- <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
-        
-                
-      
-      </div>
+    <div class="w3-content w3-section" style="max-width:500px">
+        <img class="mySlides" src="assets/images/img_la.jpg" style="width:100%">
+        <img class="mySlides" src="assets/images/img_ny.jpg" style="width:100%">
+        <img class="mySlides" src="assets/images/img_chicago.jpg" style="width:100%">
     </div>
 
-<div class="row">
-    <!--Card-->
-    <div class="card card-cascade narrower">
-      <!--Card image-->
-        <div class="view view-cascade gradient-card-header blue-gradient">
-          <h5 class="mb-0">Regular map</h5>
-        </div>
+    <div id="firebaseui-auth-container"></div>
 
-      </div>
-      <!--/.Card content-->
+    <script>
+        var myIndex = 0;
+        carousel();
 
-    </div>
-    <!--/.Card-->
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+    </script>
 
-  </div>
-  <!--Grid column-->
-
-  <!--Grid column-->
-  <div class="col-md-6 mb-4">
-
-    <!--Card-->
-    <div class="card card-cascade narrower">
-
-
-      <!--/Card image-->
-
-      <!--Card content-->
-        <div class="card-body card-body-cascade text-center">
-      <!--Google map-->
-          <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
-            <!-- <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-            style="border:0" allowfullscreen></iframe> -->
-          </div>
-
-      </div>
-    </div> 
-</div>
-  
-
-<!-- Link to Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
-
-<!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk"
-    async defer></script>
-
-
-<!-- TicketMaster API -->
-  <!-- <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script> -->
-
-<!-- Our Javascript -->
-  <script src="assets/javascript/script.js"></script>
-
-
-
+    <div class="form-group text-center m-b-10">
+        <p class="m-t">
+            <h6 align="center">&copy; 2019 TeamAPI</h6>
+        </p>
 </body>
 
 </html>
