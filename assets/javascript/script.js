@@ -1,10 +1,6 @@
 
-//old API key 5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG
-
-//Ticket Master AJAx
-//JENN'S CODE
-
-//on click event for search 
+var events = [];
+//on click event for search  & TicketMaster ajax call
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
 
@@ -23,6 +19,12 @@ $("#submitBtn").on("click", function (event) {
     sessionStorage.setItem("city", city);
 
     var TMqueryURL = "https://app.ticketmaster.com/discovery/v2/events?classificationName=music&keyword=" + artist + "&city=" + city + "&apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm";
+    // if only artisit is entered then 
+    //if only city is entered then 
+    // if both is entered then
+    // else default option
+
+    
     $.ajax({
         url: TMqueryURL,
         method: "GET"
@@ -32,31 +34,42 @@ $("#submitBtn").on("click", function (event) {
             alert('d\'oh');
         } else {
             for (var i = 0; i < response._embedded.events.length; i++) {
-                var artisitResponse = response._embedded.events[i].name;
-                var cityResponse = response._embedded.events[i]._embedded.venues[i].city.name;
-    
+                var artistResponse = response._embedded.events[i].name;
+                var cityResponse = response._embedded.events[i]._embedded.venues[0].city.name;
+                var event = {
+                    name: response._embedded.events[i].name,
+                    location: response._embedded.events[i]._embedded.venues[0].city.name,
+                }
+                events.push(event)
                 console.log("city response: " + cityResponse);
-                console.log("artist response: " + artisitResponse);
-                showEvents();
+                console.log("artist response: " + artistResponse);
+                
             }
+            showEvents ()
         }
-    });
 
+    });
 });
 
 $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
-// function showEvents(response) {
-//     for (var i = 0; i < response.page.size; i++) {
-//         $("#events").append("<p>" + response._embedded.events[i].name + "</p>");
-//     }
-// }
+function showEvents() {
+    console.log("events", events)
+    for (var i = 0; i < events.length; i++) {
+    $(".events").append("<p>" + events[i].name + "</p>");
+    $(".events").append("<p>" + events[i].location + "</p>");
+    }
+}
 
 
-$(document).ready(function(){
-    $('.modal').modal();
-  });
+
+
+
+
+// $(document).ready(function(){
+//     $('.modal').modal();
+//   });
 
 //_______________________________________________________________________________
 
