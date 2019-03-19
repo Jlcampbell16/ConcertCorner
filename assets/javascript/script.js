@@ -1,3 +1,29 @@
+var artist;
+var city;
+
+//on click event for search 
+$("#submitBtn").on("click", function (event) {
+    event.preventDefault();
+
+    var artist = $("#artistInput").val().trim();
+    var city = $("#cityInput").val().trim();
+    $(".w3-input").val("");
+
+    console.log("artist: " + artist);
+    console.log("city: " + city);
+
+    $("#artistDispaly").text(artist);
+    $("#cityDisplay").text(city);
+
+    sessionStorage.clear();
+    sessionStorage.setItem("artist", artist);
+    sessionStorage.setItem("city", city);
+});
+
+$("#artistDisplay").text(sessionStorage.getItem("artist"));
+$("#cityDisplay").text(sessionStorage.getItem("city"));
+
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -6,6 +32,13 @@ function getLocation() {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+
+
+//Ticket Master 
+    TMqueryURL = "https://app.ticketmaster.com/discovery/v2/events?keyword=" + keyword +"&city=" + city + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&keyword"
+    var keyword = $("#artistInput").val();
+    var city = $("#cityInput").val();
+
 function showPosition(position) {
     var x = document.getElementById("location");
     x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
@@ -14,7 +47,7 @@ function showPosition(position) {
 
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&latlong=" + latlon,
+        url: TMqueryURL
         async: true,
         dataType: "json",
         success: function (json) {
@@ -31,6 +64,8 @@ function showPosition(position) {
 
 }
 
+
+//
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
