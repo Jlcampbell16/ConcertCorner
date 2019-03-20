@@ -4,16 +4,11 @@ var events = [];
 //on click event for search  & TicketMaster ajax call
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
-    var res;
 
 
     var artist = $("#artistInput").val().trim();
     var city = $("#cityInput").val().trim();
     $(".w3-input").val("");
-
-    console.log("artist: " + artist);
-    console.log("city: " + city);
-
     $("#artistDispaly").text(artist);
     $("#cityDisplay").text(city);
 
@@ -30,16 +25,15 @@ $("#submitBtn").on("click", function (event) {
 
     $.ajax({
         url: TMqueryURL,
-        // dataType: "jsonp",
-        // contentType: "application/json",
         method: "GET"
     }).then(function (response) {
         console.log(response);
         res = response;
         console.log(res);
         if (!response._embedded) {
-            alert('d\'oh');
+            alert("Sorry, there are no results for this search. Please try again.");
         } else {
+            events = [];
             for (var i = 0; i < response._embedded.events.length; i++) {
                 var artistResponse = response._embedded.events[i].name;
                 var cityResponse = response._embedded.events[i]._embedded.venues[0].name;
@@ -49,6 +43,7 @@ $("#submitBtn").on("click", function (event) {
                     location: response._embedded.events[i]._embedded.venues[0].name,
                     tixURL: response._embedded.events[i].url,
                     image: response._embedded.events[i].images[0].url,
+
 
                 }
                 events.push(event)
@@ -69,6 +64,8 @@ $("#submitBtn").on("click", function (event) {
 
 
         }
+
+
 
 
 
@@ -185,7 +182,156 @@ $("#submitBtn").on("click", function (event) {
         };
 
 
+function showEvents() {
+    for (var i = 0; i < events.length; i++) {
+        var newCard = $("<div class='card horizontal'></div>");
+        var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
+        var imageContent =  $("<div class='card-image'></div>");
+        var tixButton = $("<button></button>");
+
+        // if name is not available error else append 
+        if (!events[i].name) {
+            $(cardContent).append("<p>Unable to find event title</p>");
+        } else {
+            $(cardContent).append("<p>" + events[i].name + "</p>");
+        };
+
+        // if venue is not available error else append
+        if (!events[i].location) {
+            $(cardContent).append("<p>Unable to find event venue</p>");
+        } else {
+            $(cardContent).append("<p>" + events[i].location + "</p>");
+        };
+
+        // // if ticket url not available error else append
+        if (!events[i].tixURL) {
+            $(tixButton).append("<p>Unable to find tickets</p>");
+        } else {
+            $(tixButton).append("<a href=" + events[i].tixURL + ">Buy Tickets</a>");
+            // $(cardContent).append("<button onclick=" + events[i].tixURL + ">Buy Tickets</button>");
+            // $(cardContent).append("<button href=" + events[i].tixURL + ">Buy Tickets</button>").addClass("w3-btn w3-blue-grey");
+            // <button onclick="window.location='events[i].tixURL';">Buy Tickets</button>
+
+        }
+
+          // if image is not available error else append
+          if (!events[i].image) {
+            $(imageContent).append("<p>image not found</p>");
+        } else {
+            $(imageContent).append("<img src=" + events[i].image + "></img>");
+        }
+        newCard.append(imageContent)
+        newCard.append(cardContent);
+        cardContent.append(tixButton);
+    $(".eventCard").append(newCard);
+};
+
+}
+
+// Initializes use of Materialize Modals
+$(document).ready(function () {
+    $('.modal').modal();
+});
+// Opens Terms and Agreement on page load and reload
+var windowTimeout = setTimeout(function () {
+    console.log("Ping")
+    $("#modal1").modal('open');
+}, 2000);
+
+
+
     }
+
+});
+
+//_______________________________________________________________________________
+
+
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition, showError);
+//     } else {
+//         var x = document.getElementById("location");
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+
+// function showPosition(position) {
+//     // var x = document.getElementById("location");
+//     // x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+
+//     // var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+//     $.ajax({
+//         type: "GET",
+//         url: TMqueryURL,
+//         // async: true,
+//         // dataType: "json",
+//         success: function (response) {
+//             console.log(response);
+//             var e = document.getElementById("events");
+//             e.innerHTML = response.page.totalElements + " events found.";
+//             showEvents(response);
+//             // initMap(position, response);
+//         },
+//         error: function (xhr, status, error) {
+//             console.log("error: " + error);
+//         }
+//     });
+
+// }
+
+// function showError(error) {
+//     switch (error.code) {
+//         case error.PERMISSION_DENIED:
+//             x.innerHTML = "User denied the request for Geolocation."
+//             break;
+//         case error.POSITION_UNAVAILABLE:
+//             x.innerHTML = "Location information is unavailable."
+//             break;
+//         case error.TIMEOUT:
+//             x.innerHTML = "The request to get user location timed out."
+//             break;
+//         case error.UNKNOWN_ERROR:
+//             x.innerHTML = "An unknown error occurred."
+//             break;
+//     }
+// }
+
+
+// function showEvents(response) {
+//     for (var i = 0; i < response.page.size; i++) {
+//         $("#events").append("<p>" + response._embedded.events[i].name + "</p>");
+//     }
+// }
+
+
+// function initMap(position, response) {
+//     var mapDiv = document.getElementById('map');
+//     var map = new google.maps.Map(mapDiv, {
+//         center: center,
+//         zoom: 8
+//     });
+//     for (var i = 0; i < response.page.size; i++) {
+//         addMarker(map, response._embedded.events[i]);
+//     }
+// }
+
+// function addMarker(map, event) {
+//     var marker = new google.maps.Marker({
+//         position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
+//         map: map
+//     });
+//     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+//     console.log(marker);
+// }
+
+
+
+
+
+
+getLocation();
 
 
 

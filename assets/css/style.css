@@ -17,6 +17,49 @@ position:absolute;
     height: 250px;
   }
 
-  .modal-trigger {
+.modal-trigger {
     text-align: left;
   }
+
+button {
+    cursor: pointer;
+  }
+
+  header {
+    background-color: black;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  img {
+    height: 150px; 
+    width: 150px;
+    margin: 20px; 
+
+  }
+
+#logo {
+  width: auto;
+  height: auto;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 22px; 
+  font-weight: 5px;
+  margin: 0;
+}
+
+.card.horizontal {
+  width: 600px;
+}
+
+form {
+  width: 70%; 
+  margin: 0 auto;
+}
+/* .card-content {
+  margin: 0;
+  padding: 0;
+  height: 10px;
+} */
