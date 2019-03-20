@@ -105,10 +105,12 @@ $("#submitBtn").on("click", function (event) {
                 console.log("city response: " + cityResponse);
                 console.log("artist response: " + artistResponse);
 
+
                 console.log("tixURL: " + event.tixURL);
                 
             }
             showEvents ();
+
 
         }
 
@@ -123,6 +125,7 @@ function showEvents() {
     console.log("events", events)
 
     for (var i = 0; i < events.length; i++) {
+
 
         var newCard = $("<div class='card horizontal'></div>");
         var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
@@ -174,13 +177,31 @@ function showEvents() {
 
 
 
+// Initializes use of Materialize Modals
+$(document).ready(function () {
+    $('.modal').modal();
+});
+// Opens Terms and Agreement on page load and reload
+var windowTimeout = setTimeout(function () {
+    console.log("Ping")
+    $("#modal1").modal('open');
+}, 2000);
 
+// Requires that user click checkbox to access "agree" button
+$("#checkBoxInput").click(function () {
+    console.log($(this).is(":checked"));
+    if ($(this).is(":checked")) {
+        $("#submitModalBtn").removeClass("disabled");
+        console.log($("#submitModalBtn"));
+    } else {
 
-// $(document).ready(function(){
-//     $('.modal').modal();
-//   });
+        $("#submitModalBtn").addClass("disabled");
+    }
+});
+
 
 //_______________________________________________________________________________
+
 
 // function getLocation() {
 //     if (navigator.geolocation) {
@@ -265,5 +286,7 @@ function showEvents() {
 
 
 
-// getLocation();
+
+getLocation();
+
 
