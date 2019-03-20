@@ -182,61 +182,61 @@ $("#submitBtn").on("click", function (event) {
         };
 
 
-function showEvents() {
-    for (var i = 0; i < events.length; i++) {
-        var newCard = $("<div class='card horizontal'></div>");
-        var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
-        var imageContent =  $("<div class='card-image'></div>");
-        var tixButton = $("<button></button>");
+        function showEvents() {
+            for (var i = 0; i < events.length; i++) {
+                var newCard = $("<div class='card horizontal'></div>");
+                var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
+                var imageContent = $("<div class='card-image'></div>");
+                var tixButton = $("<button></button>");
 
-        // if name is not available error else append 
-        if (!events[i].name) {
-            $(cardContent).append("<p>Unable to find event title</p>");
-        } else {
-            $(cardContent).append("<p>" + events[i].name + "</p>");
-        };
+                // if name is not available error else append 
+                if (!events[i].name) {
+                    $(cardContent).append("<p>Unable to find event title</p>");
+                } else {
+                    $(cardContent).append("<p>" + events[i].name + "</p>");
+                };
 
-        // if venue is not available error else append
-        if (!events[i].location) {
-            $(cardContent).append("<p>Unable to find event venue</p>");
-        } else {
-            $(cardContent).append("<p>" + events[i].location + "</p>");
-        };
+                // if venue is not available error else append
+                if (!events[i].location) {
+                    $(cardContent).append("<p>Unable to find event venue</p>");
+                } else {
+                    $(cardContent).append("<p>" + events[i].location + "</p>");
+                };
 
-        // // if ticket url not available error else append
-        if (!events[i].tixURL) {
-            $(tixButton).append("<p>Unable to find tickets</p>");
-        } else {
-            $(tixButton).append("<a href=" + events[i].tixURL + ">Buy Tickets</a>");
-            // $(cardContent).append("<button onclick=" + events[i].tixURL + ">Buy Tickets</button>");
-            // $(cardContent).append("<button href=" + events[i].tixURL + ">Buy Tickets</button>").addClass("w3-btn w3-blue-grey");
-            // <button onclick="window.location='events[i].tixURL';">Buy Tickets</button>
+                // // if ticket url not available error else append
+                if (!events[i].tixURL) {
+                    $(tixButton).append("<p>Unable to find tickets</p>");
+                } else {
+                    $(tixButton).append("<a href=" + events[i].tixURL + ">Buy Tickets</a>");
+                    // $(cardContent).append("<button onclick=" + events[i].tixURL + ">Buy Tickets</button>");
+                    // $(cardContent).append("<button href=" + events[i].tixURL + ">Buy Tickets</button>").addClass("w3-btn w3-blue-grey");
+                    // <button onclick="window.location='events[i].tixURL';">Buy Tickets</button>
+
+                }
+
+                // if image is not available error else append
+                if (!events[i].image) {
+                    $(imageContent).append("<p>image not found</p>");
+                } else {
+                    $(imageContent).append("<img src=" + events[i].image + "></img>");
+                }
+                newCard.append(imageContent)
+                newCard.append(cardContent);
+                cardContent.append(tixButton);
+                $(".eventCard").append(newCard);
+            };
 
         }
 
-          // if image is not available error else append
-          if (!events[i].image) {
-            $(imageContent).append("<p>image not found</p>");
-        } else {
-            $(imageContent).append("<img src=" + events[i].image + "></img>");
-        }
-        newCard.append(imageContent)
-        newCard.append(cardContent);
-        cardContent.append(tixButton);
-    $(".eventCard").append(newCard);
-};
-
-}
-
-// Initializes use of Materialize Modals
-$(document).ready(function () {
-    $('.modal').modal();
-});
-// Opens Terms and Agreement on page load and reload
-var windowTimeout = setTimeout(function () {
-    console.log("Ping")
-    $("#modal1").modal('open');
-}, 2000);
+        // Initializes use of Materialize Modals
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
+        // Opens Terms and Agreement on page load and reload
+        var windowTimeout = setTimeout(function () {
+            console.log("Ping")
+            $("#modal1").modal('open');
+        }, 2000);
 
 
 
@@ -331,32 +331,32 @@ var windowTimeout = setTimeout(function () {
 
 
 
-getLocation();
+// getLocation();
 
 
 
 
-    // Initializes use of Materialize Modals
-    $(document).ready(function () {
-        $('.modal').modal();
-    });
-    // Opens Terms and Agreement on page load and reload
-    var windowTimeout = setTimeout(function () {
-        console.log("Ping")
-        $("#modal1").modal('open');
-    }, 2000);
+// Initializes use of Materialize Modals
+$(document).ready(function () {
+    $('.modal').modal();
+});
+// Opens Terms and Agreement on page load and reload
+var windowTimeout = setTimeout(function () {
+    console.log("Ping")
+    $("#modal1").modal('open');
+}, 2000);
 
-    // Requires that user click checkbox to access "agree" button
-    $("#checkBoxInput").click(function () {
-        console.log($(this).is(":checked"));
-        if ($(this).is(":checked")) {
-            $("#submitModalBtn").removeClass("disabled");
-            console.log($("#submitModalBtn"));
-        } else {
+// Requires that user click checkbox to access "agree" button
+$("#checkBoxInput").click(function () {
+    console.log($(this).is(":checked"));
+    if ($(this).is(":checked")) {
+        $("#submitModalBtn").removeClass("disabled");
+        console.log($("#submitModalBtn"));
+    } else {
 
-            $("#submitModalBtn").addClass("disabled");
-        }
-    });
+        $("#submitModalBtn").addClass("disabled");
+    }
+});
 
 
     //_______________________________________________________________________________
@@ -443,4 +443,4 @@ getLocation();
 
 
 
-})
+
