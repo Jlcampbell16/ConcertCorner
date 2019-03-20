@@ -55,6 +55,7 @@ $("#submitBtn").on("click", function (event) {
 
 
 
+
     var artist = $("#artistInput").val().trim();
     var city = $("#cityInput").val().trim();
     $(".w3-input").val("");
@@ -91,6 +92,8 @@ $("#submitBtn").on("click", function (event) {
                     name: response._embedded.events[i].name,
                     location: response._embedded.events[i]._embedded.venues[0].city.name,
                 }
+                var latitude = response._embedded.venues[i].location.latitude;
+                var longitude = response._embedded.venues[i].location.longitude;
                 events.push(event)
                 console.log("city response: " + cityResponse);
                 console.log("artist response: " + artistResponse);
@@ -98,6 +101,10 @@ $("#submitBtn").on("click", function (event) {
             }
             showEvents()
         }
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude, longitude),
+            map: map
+        });
 
     });
 });
