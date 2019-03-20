@@ -1,11 +1,10 @@
 var events = [];
 
-
-
 //on click event for search  & TicketMaster ajax call
 $("#submitBtn").on("click", function (event) {
 
     event.preventDefault();
+    $(".eventCard").empty();
 
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
@@ -47,7 +46,6 @@ $("#submitBtn").on("click", function (event) {
     }
     initMap();
 
-
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -56,15 +54,9 @@ $("#submitBtn").on("click", function (event) {
         infoWindow.open(map);
     }
 
-
-
     var artist = $("#artistInput").val().trim();
     var city = $("#cityInput").val().trim();
     $(".w3-input").val("");
-
-    console.log("artist: " + artist);
-    console.log("city: " + city);
-
     $("#artistDispaly").text(artist);
     $("#cityDisplay").text(city);
 
@@ -81,14 +73,13 @@ $("#submitBtn").on("click", function (event) {
 
     $.ajax({
         url: TMqueryURL,
-        // dataType: "jsonp",
-        // contentType: "application/json",
         method: "GET"
     }).then(function (response) {
         console.log(response);
         if (!response._embedded) {
-            alert('d\'oh');
+            alert("Sorry, there are no results for this search. Please try again.");
         } else {
+            events = [];
             for (var i = 0; i < response._embedded.events.length; i++) {
                 var artistResponse = response._embedded.events[i].name;
                 var cityResponse = response._embedded.events[i]._embedded.venues[0].name;
@@ -98,59 +89,38 @@ $("#submitBtn").on("click", function (event) {
                     location: response._embedded.events[i]._embedded.venues[0].name,
                     tixURL: response._embedded.events[i].url,
                     image: response._embedded.events[i].images[0].url,
-                    
                 }
                 events.push(event)
-                console.log(events)
-                console.log("city response: " + cityResponse);
-                console.log("artist response: " + artistResponse);
-
-
-                console.log("tixURL: " + event.tixURL);
-                
             }
-            showEvents ();
-
-
+            showEvents();
         }
-
     });
 });
 
 $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
+
 function showEvents() {
-
-    console.log("events", events)
-
     for (var i = 0; i < events.length; i++) {
-
-
         var newCard = $("<div class='card horizontal'></div>");
         var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
-        var imageContent =  $("<div class='card-image'></div>");
-        // var eventTitle = ""; 
-        // var eventVenue = ""; 
-        // var image = ""; 
-        // var description = "";
-    
-
+        var imageContent = $("<div class='card-image'></div>");
 
         // if name is not available error else append 
         if (!events[i].name) {
             $(cardContent).append("<p>Unable to find event title</p>");
-        } else { 
-            $(cardContent).append("<p>" + events[i].name + "</p>"); 
+        } else {
+            $(cardContent).append("<p>" + events[i].name + "</p>");
         };
-        
+
         // if venue is not available error else append
         if (!events[i].location) {
             $(cardContent).append("<p>Unable to find event venue</p>");
-        } else { 
+        } else {
             $(cardContent).append("<p>" + events[i].location + "</p>");
         };
-        
+
         // // if image is not available error else append
         if (!events[i].tixURL) {
             $(cardContent).append("<p>Unable to find tickets</p>");
@@ -158,24 +128,17 @@ function showEvents() {
             $(cardContent).append("<p>" + events[i].tixURL + "</p>");
         }
         // // if description is not available error else append
-          // // if image is not available error else append
-          if (!events[i].image) {
+        // // if image is not available error else append
+        if (!events[i].image) {
             $(imageContent).append("<p>image not found</p>");
         } else {
-            $(imageContent).append("<img src=" + events[i].image +"></img>");
+            $(imageContent).append("<img src=" + events[i].image + "></img>");
         }
         newCard.append(imageContent)
         newCard.append(cardContent);
-    $(".eventCard").append(newCard);
-    
-   
-};
-
-
+        $(".eventCard").append(newCard);
+    };
 }
-
-
-
 
 // Initializes use of Materialize Modals
 $(document).ready(function () {
@@ -198,7 +161,6 @@ $("#checkBoxInput").click(function () {
         $("#submitModalBtn").addClass("disabled");
     }
 });
-
 
 //_______________________________________________________________________________
 
