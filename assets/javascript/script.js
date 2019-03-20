@@ -24,13 +24,13 @@ $("#submitBtn").on("click", function (event) {
     // if both is entered then
     // else default option
 
-    
+
     $.ajax({
         url: TMqueryURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        if(!response._embedded) {
+        if (!response._embedded) {
             alert('d\'oh');
         } else {
             for (var i = 0; i < response._embedded.events.length; i++) {
@@ -43,9 +43,9 @@ $("#submitBtn").on("click", function (event) {
                 events.push(event)
                 console.log("city response: " + cityResponse);
                 console.log("artist response: " + artistResponse);
-                
+
             }
-            showEvents ()
+            showEvents()
         }
 
     });
@@ -57,19 +57,36 @@ $("#cityDisplay").text(sessionStorage.getItem("city"));
 function showEvents() {
     console.log("events", events)
     for (var i = 0; i < events.length; i++) {
-    $(".events").append("<p>" + events[i].name + "</p>");
-    $(".events").append("<p>" + events[i].location + "</p>");
+        $(".events").append("<p>" + events[i].name + "</p>");
+        $(".events").append("<p>" + events[i].location + "</p>");
     }
 }
 
 
 
 
+// Initializes use of Materialize Modals
+$(document).ready(function () {
+    $('.modal').modal();
+});
+// Opens Terms and Agreement on page load and reload
+var windowTimeout = setTimeout(function () {
+    console.log("Ping")
+    $("#modal1").modal('open');
+}, 2000);
 
+// Requires that user click checkbox to access "agree" button
+$("#checkBoxInput").click(function () {
+    console.log($(this).is(":checked"));
+    if ($(this).is(":checked")) {
+        $("#submitModalBtn").removeClass("disabled");
+        console.log($("#submitModalBtn"));
+    } else {
 
-// $(document).ready(function(){
-//     $('.modal').modal();
-//   });
+        $("#submitModalBtn").addClass("disabled");
+    }
+});
+
 
 //_______________________________________________________________________________
 
