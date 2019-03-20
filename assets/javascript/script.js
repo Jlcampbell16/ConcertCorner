@@ -141,7 +141,7 @@ function showEvents() {
         }
         newCard.append(imageContent)
         newCard.append(cardContent);
-        newCard.append(tixButton);
+        cardContent.append(tixButton);
     $(".eventCard").append(newCard);
 };
 
