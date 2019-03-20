@@ -1,5 +1,8 @@
 
 var events = [];
+
+
+
 //on click event for search  & TicketMaster ajax call
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
@@ -27,6 +30,8 @@ $("#submitBtn").on("click", function (event) {
     
     $.ajax({
         url: TMqueryURL,
+        // dataType: "jsonp",
+        // contentType: "application/json",
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -45,7 +50,7 @@ $("#submitBtn").on("click", function (event) {
                 console.log("artist response: " + artistResponse);
                 
             }
-            showEvents ()
+            showEvents ();
         }
 
     });
@@ -55,11 +60,50 @@ $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
 function showEvents() {
+
     console.log("events", events)
+
     for (var i = 0; i < events.length; i++) {
-    $(".events").append("<p>" + events[i].name + "</p>");
-    $(".events").append("<p>" + events[i].location + "</p>");
-    }
+        var newCard = $("<div class='card horizontal'></div>");
+        // var eventTitle = ""; 
+        // var eventVenue = ""; 
+        // var image = ""; 
+        // var description = "";
+    
+
+
+        // if name is not available error else append 
+        if (!events[i].name) {
+            $(newCard).append("<p>Unable to find event title</p>");
+        } else { 
+            $(newCard).append("<p>" + events[i].name + "</p>"); 
+        };
+        
+        // if venue is not available error else append
+        if (!events[i].location) {
+            $(newCard).append("<p>Unable to find event venue</p>");
+        } else { 
+            $(newCard).append("<p>" + events[i].location + "</p>");
+        };
+        
+        // // if image is not available error else append
+        // if () {
+
+        // } else {
+
+        // }
+        // // if description is not available error else append
+        // if () {
+
+        // } else {// else error
+
+        // }
+
+    $(".eventCard").append(newCard);
+    
+   
+};
+
 }
 
 
@@ -156,4 +200,3 @@ function showEvents() {
 
 
 // getLocation();
-
