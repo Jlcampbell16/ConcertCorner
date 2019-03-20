@@ -105,7 +105,8 @@ function showEvents() {
     for (var i = 0; i < events.length; i++) {
         var newCard = $("<div class='card horizontal'></div>");
         var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
-        var imageContent = $("<div class='card-image'></div>");
+        var imageContent =  $("<div class='card-image'></div>");
+        var tixButton = $("<button></button>");
 
         // if name is not available error else append 
         if (!events[i].name) {
@@ -121,23 +122,29 @@ function showEvents() {
             $(cardContent).append("<p>" + events[i].location + "</p>");
         };
 
-        // // if image is not available error else append
+        // // if ticket url not available error else append
         if (!events[i].tixURL) {
-            $(cardContent).append("<p>Unable to find tickets</p>");
+            $(tixButton).append("<p>Unable to find tickets</p>");
         } else {
-            $(cardContent).append("<p>" + events[i].tixURL + "</p>");
+            $(tixButton).append("<a href=" + events[i].tixURL + ">Buy Tickets</a>");
+            // $(cardContent).append("<button onclick=" + events[i].tixURL + ">Buy Tickets</button>");
+            // $(cardContent).append("<button href=" + events[i].tixURL + ">Buy Tickets</button>").addClass("w3-btn w3-blue-grey");
+            // <button onclick="window.location='events[i].tixURL';">Buy Tickets</button>
+
         }
-        // // if description is not available error else append
-        // // if image is not available error else append
-        if (!events[i].image) {
+
+          // if image is not available error else append
+          if (!events[i].image) {
             $(imageContent).append("<p>image not found</p>");
         } else {
             $(imageContent).append("<img src=" + events[i].image + "></img>");
         }
         newCard.append(imageContent)
         newCard.append(cardContent);
-        $(".eventCard").append(newCard);
-    };
+        newCard.append(tixButton);
+    $(".eventCard").append(newCard);
+};
+
 }
 
 // Initializes use of Materialize Modals

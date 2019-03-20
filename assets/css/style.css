@@ -20,3 +20,7 @@ position:absolute;
   .modal-trigger {
     text-align: left;
   }
+
+  button {
+    cursor: pointer;
+  }
