@@ -1,7 +1,4 @@
 var events = [];
-
-
-
 //on click event for search  & TicketMaster ajax call
 $("#submitBtn").on("click", function (event) {
 
@@ -58,6 +55,7 @@ $("#submitBtn").on("click", function (event) {
 
 
 
+
     var artist = $("#artistInput").val().trim();
     var city = $("#cityInput").val().trim();
     $(".w3-input").val("");
@@ -81,8 +79,6 @@ $("#submitBtn").on("click", function (event) {
 
     $.ajax({
         url: TMqueryURL,
-        // dataType: "jsonp",
-        // contentType: "application/json",
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -91,28 +87,24 @@ $("#submitBtn").on("click", function (event) {
         } else {
             for (var i = 0; i < response._embedded.events.length; i++) {
                 var artistResponse = response._embedded.events[i].name;
-                var cityResponse = response._embedded.events[i]._embedded.venues[0].name;
-
+                var cityResponse = response._embedded.events[i]._embedded.venues[0].city.name;
                 var event = {
                     name: response._embedded.events[i].name,
-                    location: response._embedded.events[i]._embedded.venues[0].name,
-                    tixURL: response._embedded.events[i].url,
-                    image: response._embedded.events[i].images[0].url,
-                    
+                    location: response._embedded.events[i]._embedded.venues[0].city.name,
                 }
+                var latitude = response._embedded.venues[i].location.latitude;
+                var longitude = response._embedded.venues[i].location.longitude;
                 events.push(event)
-                console.log(events)
                 console.log("city response: " + cityResponse);
                 console.log("artist response: " + artistResponse);
 
-
-                console.log("tixURL: " + event.tixURL);
-                
             }
-            showEvents ();
-
-
+            showEvents()
         }
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude, longitude),
+            map: map
+        });
 
     });
 });
@@ -121,87 +113,23 @@ $("#artistDisplay").text(sessionStorage.getItem("artist"));
 $("#cityDisplay").text(sessionStorage.getItem("city"));
 
 function showEvents() {
-
     console.log("events", events)
-
     for (var i = 0; i < events.length; i++) {
-
-
-        var newCard = $("<div class='card horizontal'></div>");
-        var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
-        var imageContent =  $("<div class='card-image'></div>");
-        // var eventTitle = ""; 
-        // var eventVenue = ""; 
-        // var image = ""; 
-        // var description = "";
-    
-
-
-        // if name is not available error else append 
-        if (!events[i].name) {
-            $(cardContent).append("<p>Unable to find event title</p>");
-        } else { 
-            $(cardContent).append("<p>" + events[i].name + "</p>"); 
-        };
-        
-        // if venue is not available error else append
-        if (!events[i].location) {
-            $(cardContent).append("<p>Unable to find event venue</p>");
-        } else { 
-            $(cardContent).append("<p>" + events[i].location + "</p>");
-        };
-        
-        // // if image is not available error else append
-        if (!events[i].tixURL) {
-            $(cardContent).append("<p>Unable to find tickets</p>");
-        } else {
-            $(cardContent).append("<p>" + events[i].tixURL + "</p>");
-        }
-        // // if description is not available error else append
-          // // if image is not available error else append
-          if (!events[i].image) {
-            $(imageContent).append("<p>image not found</p>");
-        } else {
-            $(imageContent).append("<img src=" + events[i].image +"></img>");
-        }
-        newCard.append(imageContent)
-        newCard.append(cardContent);
-    $(".eventCard").append(newCard);
-    
-   
-};
-
-
+        $(".events").append("<p>" + events[i].name + "</p>");
+        $(".events").append("<p>" + events[i].location + "</p>");
+    }
 }
 
 
 
 
-// Initializes use of Materialize Modals
-$(document).ready(function () {
-    $('.modal').modal();
-});
-// Opens Terms and Agreement on page load and reload
-var windowTimeout = setTimeout(function () {
-    console.log("Ping")
-    $("#modal1").modal('open');
-}, 2000);
 
-// Requires that user click checkbox to access "agree" button
-$("#checkBoxInput").click(function () {
-    console.log($(this).is(":checked"));
-    if ($(this).is(":checked")) {
-        $("#submitModalBtn").removeClass("disabled");
-        console.log($("#submitModalBtn"));
-    } else {
 
-        $("#submitModalBtn").addClass("disabled");
-    }
-});
-
+// $(document).ready(function(){
+//     $('.modal').modal();
+//   });
 
 //_______________________________________________________________________________
-
 
 // function getLocation() {
 //     if (navigator.geolocation) {
@@ -285,8 +213,4 @@ $("#checkBoxInput").click(function () {
 
 
 
-
-
-getLocation();
-
-
+// getLocation();

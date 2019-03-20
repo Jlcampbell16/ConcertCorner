@@ -31,9 +31,9 @@
 
 <body>
 
-    
 
-<!-- <div class=" w3-container w3-teal">
+
+  <!-- <div class=" w3-container w3-teal">
   <h2>Input Form</h2>
 =======
   <p id="location"></p>
@@ -42,26 +42,41 @@
   <script src="assets/javascript/script.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script> -->
 
-<div class=" w3-container w3-teal">
-  <h2>Search For A Concert Near You!</h2>
-
-</div>
-
-<form class="w3-container">
-  <label class="w3-text-teal"><b>Artist or Band</b></label>
-  <input class="w3-input w3-border w3-light-grey" id="artistInput" type="text">
-
-  <label class="w3-text-teal"><b>City</b></label>
-  <input class="w3-input w3-border w3-light-grey" id="cityInput" type="text">
-
-  <button class="w3-btn w3-blue-grey" id="submitBtn">Search</button>
-</form>
-
-  <!-- <p id="location">location there</p> -->
-  <div id="map"></div>
-  <div class="events">
+  <div class=" w3-container w3-teal">
+    <h2>Search For A Concert Near You!</h2>
 
   </div>
+
+  <form class="w3-container">
+    <label class="w3-text-teal"><b>Artist or Band</b></label>
+    <input class="w3-input w3-border w3-light-grey" id="artistInput" type="text">
+
+    <label class="w3-text-teal"><b>City</b></label>
+    <input class="w3-input w3-border w3-light-grey" id="cityInput" type="text">
+
+    <button class="w3-btn w3-blue-grey" id="submitBtn">Search</button>
+  </form>
+
+  <!-- <p id="location">location there</p> -->
+  <div class="eventCard">
+      <div class="col s12 m7">
+          <h2 class="header">HARD CODED</h2>
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="https://lorempixel.com/100/190/nature/6">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div id="map"></div>
   <!-- <script src="script.js"></script> -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk&callback=initMap"" async defer></script> -->
 
@@ -69,19 +84,19 @@
 
 
 
-<div class="row">
+  <div class="row">
     <!--Card-->
     <div class="card card-cascade narrower">
       <!--Card image-->
-        <div class="view view-cascade gradient-card-header blue-gradient">
-          <h5 class="mb-0">Regular map</h5>
-        </div>
+      <div class="view view-cascade gradient-card-header blue-gradient">
 
       </div>
-      <!--/.Card content-->
 
     </div>
-    <!--/.Card-->
+    <!--/.Card content-->
+
+  </div>
+  <!--/.Card-->
 
   </div>
   <!--Grid column-->
@@ -95,33 +110,31 @@
 
       <!--/Card image-->
 
-      <!--Card content-->
-        <div class="card-body card-body-cascade text-center">
-      <!--Google map-->
-          <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
-            <!-- <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+
+      <!-- <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
             style="border:0" allowfullscreen></iframe> -->
-          </div>
+    </div>
 
-      </div>
-    </div> 
-</div>
-  
+  </div>
+  </div>
+  </div>
 
-<!-- Link to Firebase -->
+
+  <!-- Link to Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 
-<!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDQGrIsrbC1Ev4751eCv1rk5oftWhs5_rk"
-    async defer></script>
 
 
-<!-- TicketMaster API -->
+
+  <!-- TicketMaster API -->
   <!-- <script src="https://app.ticketmaster.com/discovery/v2/events.json?apikey=CivSHmaHRiF5tdJGvaAktTdsXl91vzwm"></script> -->
 
-<!-- Our Javascript -->
+  <!-- Our Javascript -->
   <script src="assets/javascript/script.js"></script>
 
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCXO3LNggc901UhQiY7VmNe3jTlSCgMHWk"
+    async defer></script>
 
 
 </body>
