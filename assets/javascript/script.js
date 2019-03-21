@@ -22,7 +22,6 @@ $("#submitBtn").on("click", function (event) {
         url: TMqueryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
         res = response;
         if (!response._embedded) {
             alert("Sorry, there are no results for this search. Please try again.");
@@ -86,7 +85,7 @@ $("#submitBtn").on("click", function (event) {
     $("#cityDisplay").text(sessionStorage.getItem("city"));
 
     //==================================================================================================
-    function showEvents() {        
+    function showEvents() {
         for (var i = 0; i < events.length; i++) {
             var newCard = $("<div class='card horizontal'></div>");
             var cardContent = $("<div class='card-stacked'><div class='card-content'></div></div>");
@@ -117,10 +116,6 @@ $("#submitBtn").on("click", function (event) {
                 $(tixButton).append("<p>Unable to find tickets</p>");
             } else {
                 $(tixButton).append("<a href=" + events[i].tixURL + ">Buy Tickets</a>");
-                // $(cardContent).append("<button onclick=" + events[i].tixURL + ">Buy Tickets</button>");
-                // $(cardContent).append("<button href=" + events[i].tixURL + ">Buy Tickets</button>").addClass("w3-btn w3-blue-grey");
-                // <button onclick="window.location='events[i].tixURL';">Buy Tickets</button>
-
             }
 
             // if image is not available error else append
@@ -135,38 +130,27 @@ $("#submitBtn").on("click", function (event) {
             $(".eventCard").append(newCard);
         };
 
-    // }
-//===============================================================================================
-    // Initializes use of Materialize Modals
-    // $(document).ready(function () {
-    //     $('.modal').modal();
-    // });
-    // // Opens Terms and Agreement on page load and reload
-    // var windowTimeout = setTimeout(function () {
-    //     console.log("Ping")
-    //     $("#modal1").modal('open');
-    // }, 2000);
 
-}
-
-// Initializes use of Materialize Modals
-$(document).ready(function () {
-    $('.modal').modal();
-});
-// Opens Terms and Agreement on page load and reload
-var windowTimeout = setTimeout(function () {
-    $("#modal1").modal('open');
-}, 2000);
-
-// Requires that user click checkbox to access "agree" button
-$("#checkBoxInput").click(function () {
-    if ($(this).is(":checked")) {
-        $("#submitModalBtn").removeClass("disabled");
-    } else {
-
-        $("#submitModalBtn").addClass("disabled");
     }
-});
+
+    // Initializes use of Materialize Modals
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+    // Opens Terms and Agreement on page load and reload
+    var windowTimeout = setTimeout(function () {
+        $("#modal1").modal('open');
+    }, 2000);
+
+    // Requires that user click checkbox to access "agree" button
+    $("#checkBoxInput").click(function () {
+        if ($(this).is(":checked")) {
+            $("#submitModalBtn").removeClass("disabled");
+        } else {
+
+            $("#submitModalBtn").addClass("disabled");
+        }
+    });
 
 });
 
