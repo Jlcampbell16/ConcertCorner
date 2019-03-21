@@ -31,11 +31,13 @@ button {
     text-align: center;
   }
 
+  .card-image {
+    min-width: 300px;
+  }
   img {
     height: 150px; 
     width: 150px;
     margin: 20px; 
-
   }
 
 #logo {
@@ -58,8 +60,8 @@ form {
   width: 70%; 
   margin: 0 auto;
 }
-/* .card-content {
-  margin: 0;
-  padding: 0;
-  height: 10px;
-} */
+
+
+h2 {
+  text-align: center;
+}
